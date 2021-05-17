@@ -2,16 +2,16 @@ package utn.frsf.isi.dan.grupotp.tplab.danmscuentacorriente.model;
 
 import com.fasterxml.jackson.annotation.*;
 
-//import javax.persistence.*;
+import javax.persistence.*;
 import java.time.Instant;
 import java.util.List;
 import java.util.Objects;
 
-//@Entity
+@Entity
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Transferencia {
-    /*  @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY) */
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
     //esto en realidad es la clase hijo, como se hace bien?
     private String cbuOrigen;
     private String cbuDestino;

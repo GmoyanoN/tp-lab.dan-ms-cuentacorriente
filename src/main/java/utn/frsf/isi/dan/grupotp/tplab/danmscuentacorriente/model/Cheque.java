@@ -2,7 +2,7 @@ package utn.frsf.isi.dan.grupotp.tplab.danmscuentacorriente.model;
 
 import com.fasterxml.jackson.annotation.*;
 
-//import javax.persistence.*;
+import javax.persistence.*;
 import java.time.Instant;
 import java.util.List;
 import java.util.Objects;
@@ -10,8 +10,8 @@ import java.util.Objects;
 //@Entity
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Cheque {
-    /*  @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     //esto en realidad es la clase hijo, como se hace bien?
     private Integer nroCheque;
     private Instant fechaCobro;

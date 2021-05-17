@@ -7,18 +7,32 @@ import java.time.Instant;
 import java.util.List;
 import java.util.Objects;
 
-//@Entity
+@Entity
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class Cheque {
+public class Cheque extends FormaPago {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //esto en realidad es la clase hijo, como se hace bien?
     private Integer nroCheque;
     private Instant fechaCobro;
     private String banco;
 
     //TODO hacer las relaciones entre clases
 
+
+    public Cheque(Integer id, String observacion, Integer nroCheque, Instant fechaCobro, String banco) {
+        super(id, observacion);
+        this.nroCheque = nroCheque;
+        this.fechaCobro = fechaCobro;
+        this.banco = banco;
+    }
+
+    public Cheque(Integer nroCheque, Instant fechaCobro, String banco) {
+        this.nroCheque = nroCheque;
+        this.fechaCobro = fechaCobro;
+        this.banco = banco;
+    }
+
+    public Cheque(){}
 
     public Integer getNroCheque() {return nroCheque; }
 

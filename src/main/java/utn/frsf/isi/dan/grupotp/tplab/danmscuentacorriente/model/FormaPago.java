@@ -12,12 +12,19 @@ import java.util.Objects;
 public class FormaPago {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //esto en realidad es la clase padre, hay otras que heredan, como se hace bien?
     private Integer id;
     private String observacion;
 
     //TODO hacer las relaciones entre clases
 
+
+    public FormaPago(Integer id, String observacion) {
+        this.id = id;
+        this.observacion = observacion;
+    }
+
+    public FormaPago() {
+    }
 
     public Integer getId() {return id;}
 

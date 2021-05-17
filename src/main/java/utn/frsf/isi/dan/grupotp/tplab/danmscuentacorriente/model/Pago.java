@@ -18,6 +18,14 @@ public class Pago {
     //TODO hacer las relaciones entre clases
 
 
+    public Pago(Integer id, Instant fechaPago) {
+        this.id = id;
+        this.fechaPago = fechaPago;
+    }
+
+    public Pago() {
+    }
+
     public Integer getId() {return id;}
 
     public void setId(Integer id) {this.id = id;}

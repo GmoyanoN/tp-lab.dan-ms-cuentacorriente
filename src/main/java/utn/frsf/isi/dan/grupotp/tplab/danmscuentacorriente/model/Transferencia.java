@@ -9,15 +9,30 @@ import java.util.Objects;
 
 @Entity
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class Transferencia {
+public class Transferencia extends FormaPago {
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //esto en realidad es la clase hijo, como se hace bien?
     private String cbuOrigen;
     private String cbuDestino;
     private Long codigoTransferencia;
     //TODO hacer las relaciones entre clases
 
+
+    public Transferencia(Integer id, String observacion, String cbuOrigen, String cbuDestino, Long codigoTransferencia) {
+        super(id, observacion);
+        this.cbuOrigen = cbuOrigen;
+        this.cbuDestino = cbuDestino;
+        this.codigoTransferencia = codigoTransferencia;
+    }
+
+    public Transferencia(String cbuOrigen, String cbuDestino, Long codigoTransferencia) {
+        this.cbuOrigen = cbuOrigen;
+        this.cbuDestino = cbuDestino;
+        this.codigoTransferencia = codigoTransferencia;
+    }
+
+    public Transferencia() {
+ }
 
     public String getCbuOrigen() {return cbuOrigen;}
 

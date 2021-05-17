@@ -9,7 +9,7 @@ import java.util.Objects;
 
 @Entity
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class Efectivo {
+public class Efectivo extends FormaPago {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //esto en realidad es la clase hijo, como se hace bien?
@@ -18,6 +18,16 @@ public class Efectivo {
     //TODO hacer las relaciones entre clases
 
 
+    public Efectivo(Integer id, String observacion, Integer nroRecibo) {
+        super(id, observacion);
+        this.nroRecibo = nroRecibo;
+    }
+
+    public Efectivo(Integer nroRecibo) {
+        this.nroRecibo = nroRecibo;
+    }
+
+    public Efectivo(){}
     public Integer getNroRecibo() {return nroRecibo;}
 
     public void setNroRecibo(Integer nroRecibo) {this.nroRecibo = nroRecibo;}

@@ -16,7 +16,7 @@ public class Cheque extends FormaPago {
     private Instant fechaCobro;
     private String banco;
 
-    //TODO hacer las relaciones entre clases
+
 
 
     public Cheque(Integer id, String observacion, Integer nroCheque, Instant fechaCobro, String banco) {

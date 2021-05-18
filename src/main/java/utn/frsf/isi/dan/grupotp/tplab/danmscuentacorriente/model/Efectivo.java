@@ -12,10 +12,9 @@ import java.util.Objects;
 public class Efectivo extends FormaPago {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //esto en realidad es la clase hijo, como se hace bien?
     private Integer nroRecibo;
 
-    //TODO hacer las relaciones entre clases
+
 
 
     public Efectivo(Integer id, String observacion, Integer nroRecibo) {

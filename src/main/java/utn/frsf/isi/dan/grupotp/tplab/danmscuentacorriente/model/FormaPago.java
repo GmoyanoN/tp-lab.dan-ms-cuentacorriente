@@ -15,7 +15,7 @@ public class FormaPago {
     private Integer id;
     private String observacion;
 
-    //TODO hacer las relaciones entre clases
+
 
 
     public FormaPago(Integer id, String observacion) {

@@ -14,8 +14,10 @@ public class Pago {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Instant fechaPago;
-
-    //TODO hacer las relaciones entre clases
+    @OneToOne
+    private FormaPago formaPago;
+    @Transient
+    private Cliente cliente;
 
 
     public Pago(Integer id, Instant fechaPago) {

@@ -15,7 +15,6 @@ public class Transferencia extends FormaPago {
     private String cbuOrigen;
     private String cbuDestino;
     private Long codigoTransferencia;
-    //TODO hacer las relaciones entre clases
 
 
     public Transferencia(Integer id, String observacion, String cbuOrigen, String cbuDestino, Long codigoTransferencia) {

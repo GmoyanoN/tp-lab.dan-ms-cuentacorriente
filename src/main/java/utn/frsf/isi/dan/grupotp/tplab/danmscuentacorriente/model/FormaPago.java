@@ -15,9 +15,6 @@ public class FormaPago {
     private Integer id;
     private String observacion;
 
-
-
-
     public FormaPago(Integer id, String observacion) {
         this.id = id;
         this.observacion = observacion;

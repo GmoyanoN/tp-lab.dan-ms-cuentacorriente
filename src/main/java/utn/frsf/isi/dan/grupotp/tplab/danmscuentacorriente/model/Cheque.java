@@ -9,14 +9,9 @@ import java.util.Objects;
 
 @Entity
 public class Cheque extends FormaPago {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer nroCheque;
     private Instant fechaCobro;
     private String banco;
-
-
-
 
     public Cheque(Integer id, String observacion, Integer nroCheque, Instant fechaCobro, String banco) {
         super(id, observacion);

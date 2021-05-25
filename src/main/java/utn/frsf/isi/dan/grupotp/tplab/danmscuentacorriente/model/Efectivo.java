@@ -9,12 +9,7 @@ import java.util.Objects;
 
 @Entity
 public class Efectivo extends FormaPago {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer nroRecibo;
-
-
-
 
     public Efectivo(Integer id, String observacion, Integer nroRecibo) {
         super(id, observacion);
@@ -26,6 +21,7 @@ public class Efectivo extends FormaPago {
     }
 
     public Efectivo(){}
+
     public Integer getNroRecibo() {return nroRecibo;}
 
     public void setNroRecibo(Integer nroRecibo) {this.nroRecibo = nroRecibo;}

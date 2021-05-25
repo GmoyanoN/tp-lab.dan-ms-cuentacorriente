@@ -16,9 +16,15 @@ public class PagoRest {
     public PagoRest(PagoService pagoService){
         this.pagoService = pagoService;
     }
+
     @GetMapping
     public ResponseEntity<List<Pago>> buscarTodos(){
         return ResponseEntity.ok(pagoService.buscarTodos());
+    }
+
+    @GetMapping("/cliente/{id}")
+    public ResponseEntity<List<Pago>> buscarPagoPorCliente(@PathVariable Integer id){
+        return ResponseEntity.of(pagoService.buscarPagoPorCliente(id));
     }
 
     @PostMapping

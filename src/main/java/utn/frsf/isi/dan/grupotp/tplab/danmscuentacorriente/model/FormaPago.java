@@ -9,6 +9,15 @@ import java.util.Objects;
 //Vamos a usar "Joined Table" para el mapeo
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
+@JsonTypeInfo(
+        use = JsonTypeInfo.Id.NAME,
+        include = JsonTypeInfo.As.PROPERTY,
+        property = "@type")
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = Efectivo.class, name = "Efectivo"),
+        @JsonSubTypes.Type(value = Cheque.class, name = "Cheque"),
+        @JsonSubTypes.Type(value = Transferencia.class, name = "Transferencia")
+})
 public class FormaPago {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

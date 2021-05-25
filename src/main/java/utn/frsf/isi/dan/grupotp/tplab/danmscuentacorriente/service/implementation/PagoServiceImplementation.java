@@ -7,6 +7,7 @@ import utn.frsf.isi.dan.grupotp.tplab.danmscuentacorriente.repositories.PagoRepo
 import utn.frsf.isi.dan.grupotp.tplab.danmscuentacorriente.service.PagoService;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PagoServiceImplementation implements PagoService {
@@ -20,6 +21,11 @@ public class PagoServiceImplementation implements PagoService {
     @Override
     public List<Pago> buscarTodos(){
         return pagoRepository.findAll();
+    }
+
+    @Override
+    public Optional<List<Pago>> buscarPagoPorCliente(Integer id){
+        return pagoRepository.buscarPagoPorCliente(id);
     }
 
     @Override

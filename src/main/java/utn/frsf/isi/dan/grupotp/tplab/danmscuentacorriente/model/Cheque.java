@@ -8,23 +8,27 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
 @Entity
 public class Cheque extends FormaPago {
     private Integer nroCheque;
-    private Instant fechaCobro;
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
+    private LocalDateTime fechaCobro;
     private String banco;
 
-    public Cheque(Integer id, String observacion, Integer nroCheque, Instant fechaCobro, String banco) {
+    public Cheque(Integer id, String observacion, Integer nroCheque, LocalDateTime fechaCobro, String banco) {
         super(id, observacion);
         this.nroCheque = nroCheque;
         this.fechaCobro = fechaCobro;
         this.banco = banco;
     }
 
-    public Cheque(Integer nroCheque, Instant fechaCobro, String banco) {
+    public Cheque(Integer nroCheque, LocalDateTime fechaCobro, String banco) {
         this.nroCheque = nroCheque;
         this.fechaCobro = fechaCobro;
         this.banco = banco;
@@ -36,9 +40,9 @@ public class Cheque extends FormaPago {
 
     public void setNroCheque(Integer nroCheque) {this.nroCheque = nroCheque; }
 
-    public Instant getFechaCobro() {return fechaCobro;}
+    public LocalDateTime getFechaCobro() {return fechaCobro;}
 
-    public void setFechaCobro(Instant fechaCobro) {this.fechaCobro = fechaCobro;}
+    public void setFechaCobro(LocalDateTime fechaCobro) {this.fechaCobro = fechaCobro;}
 
     public String getBanco() {return banco; }
 

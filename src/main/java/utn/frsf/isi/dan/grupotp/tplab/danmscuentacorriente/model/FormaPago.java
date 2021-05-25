@@ -6,9 +6,9 @@ import javax.persistence.*;
 import java.time.Instant;
 import java.util.List;
 import java.util.Objects;
-
+//Vamos a usar "Joined Table" para el mapeo
 @Entity
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class FormaPago {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

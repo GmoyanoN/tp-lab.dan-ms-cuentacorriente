@@ -8,14 +8,10 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Transferencia extends FormaPago {
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String cbuOrigen;
-    private String cbuDestino;
-    private Long codigoTransferencia;
-
+   private Long codigoTransferencia;
+   private String cbuOrigen;
+   private String cbuDestino;
 
     public Transferencia(Integer id, String observacion, String cbuOrigen, String cbuDestino, Long codigoTransferencia) {
         super(id, observacion);

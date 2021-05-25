@@ -1,5 +1,5 @@
 package utn.frsf.isi.dan.grupotp.tplab.danmscuentacorriente.model;
-
+//esta clase es ReadOnly
 public class Cliente {
     private Integer id;
     private String razonSocial;

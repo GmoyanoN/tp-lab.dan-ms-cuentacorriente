@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@JsonIdentityInfo(scope= Pago.class,generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Pago {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,9 +20,11 @@ public class Pago {
     private Cliente cliente;
 
 
-    public Pago(Integer id, Instant fechaPago) {
+    public Pago(Integer id, Instant fechaPago, FormaPago formaPago, Cliente cliente) {
         this.id = id;
         this.fechaPago = fechaPago;
+        this.formaPago = formaPago;
+        this.cliente = cliente;
     }
 
     public Pago() {
@@ -35,4 +37,20 @@ public class Pago {
     public Instant getFechaPago() { return fechaPago;}
 
     public void setFechaPago(Instant fechaPago) {this.fechaPago = fechaPago; }
+
+    public FormaPago getFormaPago() {
+        return formaPago;
+    }
+
+    public void setFormaPago(FormaPago formaPago) {
+        this.formaPago = formaPago;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
 }

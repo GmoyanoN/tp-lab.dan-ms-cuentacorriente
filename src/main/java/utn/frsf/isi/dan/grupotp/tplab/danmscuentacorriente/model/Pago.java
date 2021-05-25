@@ -18,13 +18,14 @@ public class Pago {
     private FormaPago formaPago;
     @Transient
     private Cliente cliente;
+    private Integer idCliente;
 
-
-    public Pago(Integer id, Instant fechaPago, FormaPago formaPago, Cliente cliente) {
+    public Pago(Integer id, Instant fechaPago, FormaPago formaPago, Cliente cliente, Integer idCliente) {
         this.id = id;
         this.fechaPago = fechaPago;
         this.formaPago = formaPago;
         this.cliente = cliente;
+        this.idCliente = idCliente;
     }
 
     public Pago() {
@@ -52,5 +53,13 @@ public class Pago {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    public Integer getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(Integer idCliente) {
+        this.idCliente = idCliente;
     }
 }

@@ -1,9 +1,14 @@
 package utn.frsf.isi.dan.grupotp.tplab.danmscuentacorriente.model;
 
 import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
@@ -13,14 +18,17 @@ public class Pago {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Instant fechaPago;
-    @OneToOne
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
+    private LocalDateTime fechaPago;
+    @OneToOne(cascade = CascadeType.ALL)
     private FormaPago formaPago;
     @Transient
     private Cliente cliente;
     private Integer idCliente;
 
-    public Pago(Integer id, Instant fechaPago, FormaPago formaPago, Cliente cliente, Integer idCliente) {
+    public Pago(Integer id, LocalDateTime fechaPago, FormaPago formaPago, Cliente cliente, Integer idCliente) {
         this.id = id;
         this.fechaPago = fechaPago;
         this.formaPago = formaPago;
@@ -35,9 +43,9 @@ public class Pago {
 
     public void setId(Integer id) {this.id = id;}
 
-    public Instant getFechaPago() { return fechaPago;}
+    public LocalDateTime getFechaPago() { return fechaPago;}
 
-    public void setFechaPago(Instant fechaPago) {this.fechaPago = fechaPago; }
+    public void setFechaPago(LocalDateTime fechaPago) {this.fechaPago = fechaPago; }
 
     public FormaPago getFormaPago() {
         return formaPago;
